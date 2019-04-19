@@ -17,17 +17,20 @@
     <%--搭建显示页面--%>
     <div class="container">
                 <%--标题--%>
-        <div class="row"></div>
-                    <div class="col-md-12">
-                        <h1>SSM-CRUD</h1>
-                    </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1>SSM-CRUD</h1>
+            </div>
+        </div>
                 <%--按钮--%>
-        <div class="row"></div>
-                    <div class="col-md-4 col-md-offset-8">
-                        <button class="btn btn-primary">新增</button>
-                        <button class="btn btn-danger">删除</button>
-                    </div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-8">
+                <button class="btn btn-primary">新增</button>
+                <button class="btn btn-danger">删除</button>
+            </div>
+        </div>
                 <%--显示表格数据--%>
+                    <div class="row">
                     <div class="col-md-12">
                         <table class="table table-hover">
                             <tr>
@@ -58,6 +61,7 @@
 
                         </table>
                     </div>
+                    </div>
                     <%--显示分页信息--%>
                     <div class="row"></div>
                     <%--分页文字信息--%>
@@ -76,17 +80,14 @@
                                             </a>
                                         </li>
                                     </c:if>
-
-
-                                    <c:forEach items="${pageInfo.navigatepageNums}" var="page_Num">
-                                        <c:if test="${page_Num==pageInfo.pageNum}">
-                                            <li class="active"><a href="#">${pageNum}</a></li>
-                                        </c:if>
-                                        <c:if test="${page_Num!=pageInfo.pageNum}">
-                                            <li><a href="${APP_PATH}/empSearch?pageNumber=${pageNum}">${pageNum}</a></li>
-                                        </c:if>
-                                    </c:forEach>
-
+                                        <c:forEach items="${pageInfo.navigatepageNums}" var="page_Num">
+                                            <c:if test="${page_Num==pageInfo.pageNum}">
+                                                <li class="active"><a href="#">${page_Num}</a></li>
+                                            </c:if>
+                                            <c:if test="${page_Num!=pageInfo.pageNum}">
+                                                <li><a href="${APP_PATH}/empSearch?pageNumber=${page_Num}">${page_Num}</a></li>
+                                            </c:if>
+                                        </c:forEach>
                                     <c:if test="${pageInfo.hasNextPage}">
                                         <li>
                                             <a href="${APP_PATH}/empSearch?pageNumber=${pageInfo.pageNum+1}" aria-label="Next">
